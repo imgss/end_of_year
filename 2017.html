@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css">
+    <!-- load and instantiate ScrollReveal first -->
+    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
+    <script>
+      window.sr = ScrollReveal({reset:true});
+
+      // Add class to <html> if ScrollReveal is supported
+      // Note: this method is deprecated, and only works in version 3
+      if (sr.isSupported()) {
+        document.documentElement.classList.add('sr');
+      }
+
+    </script>
+
+    <style>
+
+      /* Ensure elements load hidden before ScrollReveal runs */
+      .sr .fooReveal { visibility: hidden; }
+
+    </style>
+
+  </head>
+  <body>
+
+    <div class="fooContainer">
+      <div class="full banner page">
+        <span id="year">1993</span>
+        <span  class="desc" style="font-size: 1.6rem">记录一下过去的一年</span>
+      </div>
+      <div class="full page2 month">
+        <span class="text">
+
+        </span>
+        <span>一月</span>
+      </div>
+      <div class="full page3"> 二月 </div>
+      <div class="full page4"> 三月 </div>
+    </div>
+    <script>
+      function animate () {
+        if (TWEEN.update()) {
+          requestAnimationFrame(animate)
+        }
+      }
+
+      new TWEEN.Tween({ tweeningNumber: 1993 })
+        .easing(TWEEN.Easing.Quadratic.InOut)
+        .to({ tweeningNumber: 2017 }, 2000)
+        .onUpdate(function () {
+          document.getElementById('year').textContent = this.tweeningNumber.toFixed(0)
+        })
+        .start()
+
+      animate()
+    </script>
+    <!-- make reveal calls last -->
+    <script>
+      sr.reveal('.page', { container: '.fooContainer' });
+      sr.reveal('.page .desc', { delay: 2000 });
+      sr.reveal('.page2', { container: '.fooContainer' });
+      sr.reveal('.page3', { container: '.fooContainer' });
+      sr.reveal('.page4', { 
+        // 'bottom', 'left', 'top', 'right'
+        origin: 'bottom',
+        // Can be any valid CSS distance, e.g. '5rem', '10%', '20vw', etc.
+        distance: '10px',
+        duration: 500,
+        delay: 100,
+        // Starting angles in degrees, will transition from these values to 0 in all axes.
+        rotate: { x: 10, y: 0, z: 0 },
+       });
+    </script>
+
+  </body>
+</html>
