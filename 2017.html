@@ -2,11 +2,14 @@
 <html>
   <head>
     <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <!-- load and instantiate ScrollReveal first -->
     <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
+
     <script>
-      window.sr = ScrollReveal({reset:true});
+      window.sr = ScrollReveal({reset: true, mobile: true});
 
       // Add class to <html> if ScrollReveal is supported
       // Note: this method is deprecated, and only works in version 3
@@ -16,7 +19,7 @@
 
     </script>
 
-    <style>
+     <style>
 
       /* Ensure elements load hidden before ScrollReveal runs */
       .sr .fooReveal { visibility: hidden; }
@@ -35,10 +38,20 @@
         <span class="text">
 
         </span>
-        <span>一月</span>
+        <span><i class="fa fa-calendar fa-2" aria-hidden="true"></i> 一月</span>
       </div>
-      <div class="full page3"> 二月 </div>
-      <div class="full page4"> 三月 </div>
+      <div class="full page3 month">
+        <span class="text">
+          我在人民广场吃炸鸡
+        </span>
+        <span><i class="fa fa-calendar fa-2" aria-hidden="true"></i> 二月</span> 
+      </div>
+      <div class="full page4 month">
+        <span class="text">
+
+        </span>
+        <span><i class="fa fa-calendar fa-2" aria-hidden="true"></i> 三月</span>
+      </div>
     </div>
     <script>
       function animate () {
@@ -59,15 +72,13 @@
     </script>
     <!-- make reveal calls last -->
     <script>
-      sr.reveal('.page', { container: '.fooContainer' });
       sr.reveal('.page .desc', { delay: 2000 });
-      sr.reveal('.page2', { container: '.fooContainer' });
       sr.reveal('.page3', { container: '.fooContainer' });
-      sr.reveal('.page4', { 
+      sr.reveal('.month span:last-child', { 
         // 'bottom', 'left', 'top', 'right'
         origin: 'bottom',
         // Can be any valid CSS distance, e.g. '5rem', '10%', '20vw', etc.
-        distance: '10px',
+        distance: '50vh',
         duration: 500,
         delay: 100,
         // Starting angles in degrees, will transition from these values to 0 in all axes.
