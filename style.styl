@@ -1,10 +1,25 @@
 body
     background-color: #1a2434
     color: white
+    font-size: medium
 
 html
     font-size: 10px
-
+p
+    line-height: 1.5em
+    color: #eee
+.desc
+    &:before,&:after
+        content: ' ';
+        background: #fff
+        width: 3rem;
+        position: absolute;
+        height: 1px;
+        top: 50%;
+    &:before
+        margin-left: -4.4rem;
+    &:after
+        margin-left: 1.4rem;
 .full
     width: 100%
     height: 100vh
@@ -20,8 +35,16 @@ html
 .month
     display: flex
     align-items: center
-    .text
+    .content
         width: 80%
+        margin: 2rem
+        overflow: auto
+        align-self: stretch
+        p
+            color: #eeeeee
+            font-size: 1.2rem
+            line-height: 2rem
+            max-width: 80%
     span:last-child
-        font-size: 3rem
+        font-size: 2rem
     

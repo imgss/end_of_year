@@ -1,9 +1,29 @@
 body {
   background-color: #1a2434;
   color: #fff;
+  font-size: medium;
 }
 html {
   font-size: 10px;
+}
+p {
+  line-height: 1.5em;
+  color: #eee;
+}
+.desc:before,
+.desc:after {
+  content: ' ';
+  background: #fff;
+  width: 3rem;
+  position: absolute;
+  height: 1px;
+  top: 50%;
+}
+.desc:before {
+  margin-left: -4.4rem;
+}
+.desc:after {
+  margin-left: 1.4rem;
 }
 .full {
   width: 100%;
@@ -21,9 +41,18 @@ html {
   display: flex;
   align-items: center;
 }
-.month .text {
+.month .content {
   width: 80%;
+  margin: 2rem;
+  overflow: auto;
+  align-self: stretch;
+}
+.month .content p {
+  color: #eee;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  max-width: 80%;
 }
 .month span:last-child {
-  font-size: 3rem;
+  font-size: 2rem;
 }
