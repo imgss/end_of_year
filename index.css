@@ -2,9 +2,17 @@ body {
   background-color: #1a2434;
   color: #fff;
   font-size: medium;
+  overflow-x: hidden;
+}
+*{
+  padding: 0;
+  margin: 0;
 }
 html {
   font-size: 10px;
+}
+h3{
+  margin-bottom: 2rem
 }
 p {
   line-height: 1.5em;
@@ -43,7 +51,7 @@ p {
 }
 .month .content {
   width: 80%;
-  margin: 2rem;
+  padding: 2rem;
   overflow: auto;
   align-self: stretch;
 }
@@ -55,4 +63,17 @@ p {
 }
 .month span:last-child {
   font-size: 2rem;
+  margin: 1rem 0;
+}
+@media screen and (max-width:400px){
+  .month{
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+  .month .content{
+    width: 90vw;
+  }
+  .month .content p{
+    max-width: 100%;
+  }
 }
