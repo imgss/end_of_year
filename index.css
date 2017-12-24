@@ -14,6 +14,9 @@ html {
 h3{
   margin-bottom: 2rem
 }
+h4{
+  margin: 1rem 0;
+}
 p {
   line-height: 1.5em;
   color: #eee;
@@ -37,6 +40,7 @@ p {
   width: 100%;
   height: 100vh;
   border-bottom: 1px solid rgba(255,255,255,0.3);
+  background-size: cover;
 }
 .banner {
   font-size: 16vw;
@@ -53,17 +57,34 @@ p {
   width: 80%;
   padding: 2rem;
   overflow: auto;
+  background: rgba(0,0,0,.3);
   align-self: stretch;
 }
 .month .content p {
   color: #eee;
-  font-size: 1.2rem;
-  line-height: 2rem;
+  font-size: 1.4rem;
+  line-height: 3rem;
   max-width: 80%;
+  text-align: justify;
 }
 .month span:last-child {
   font-size: 2rem;
   margin: 1rem 0;
+  flex: 1;
+  text-align: center;
+}
+
+.page2{
+  background-image: url('./img/1.jpeg');
+}
+.page3{
+  background-image: url('./img/2.jpeg');
+}
+.page4{
+  background-image: url('./img/3.jpeg');
+}
+.page5{
+  background-image: url('./img/4.jpeg');
 }
 @media screen and (max-width:400px){
   .month{
