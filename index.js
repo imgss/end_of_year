@@ -1,41 +1,40 @@
-// document.onmousewheel = (function(){
-//     var startTime = 0, //翻屏起始时间  
-//     endTime = 0,  
-//     now = 0,
-//     target = 0,
-//     scrolling = false,
-//     main = document.documentElement;
-//     var clientH = window.innerHeight;
-//     return function scrollFun(event){
-//         startTime = new Date().getTime();  
-//         var delta = event.detail || (-event.wheelDelta);
-//         var flag = delta > 0 ? 1 : -1;
-//             var scrollTop = document.documentElement.scrollTop ;
-//             if(!scrolling){
-//                 scrolling = true;
-//                 var target = Math.ceil(parseInt(scrollTop / clientH) * clientH + clientH * flag);
-//                 console.log(target)
-//                 if(target + clientH > parseInt(getComputedStyle(main).height) || target < 0){
-//                     return;
-//                 }
-//                 var id = setInterval(function(){
-//                     if(document.documentElement.scrollTop < target){
-//                         document.documentElement.scrollTop += (target-scrollTop) / 10 * flag;
-//                         console.log('scroll')
-//                     } else {
-//                         scrolling = false;
-//                         clearInterval(id)
-//                         console.log('not scroll')
-//                     }
-//                 }, 20)
-//                 document.documentElement.scrollTop = Math.ceil(parseInt(scrollTop / clientH) * clientH + clientH);
-//                 console.log(document.documentElement.scrollTop)
-//                 console.log('==============')
-//         }else{  
-//             event.preventDefault();    
-//         }
+let data = {
+    labels: Array.apply(null, { length: 2 }).map(function(i,index){return index + 1}),
 
-//     }
-// })();
+    datasets: [
+      {
+        title: "Some Data",
+        values: [25, 40]
+      }
+    ]
+  };
 
-  
+  let chart = new Chart({
+    parent: "#chart", // or a DOM element
+    title: "My Awesome Chart",
+    data: data,
+    type: 'line', // or 'line', 'scatter', 'pie', 'percentage'
+    height: 250,
+
+    colors: ['#7cd6fd', 'violet', 'blue'],
+    // hex-codes or these preset colors;
+    // defaults (in order):
+    // ['light-blue', 'blue', 'violet', 'red',
+    // 'orange', 'yellow', 'green', 'light-green',
+    // 'purple', 'magenta', 'grey', 'dark-grey']
+
+    format_tooltip_x: d => (d + '').toUpperCase(),
+    format_tooltip_y: d => d + ' pts'
+  });
+var timerId = setInterval((function(){
+    var label = 2;
+    return function(){
+        if(label === 12){
+            clearInterval(timerId)
+        }
+        chart.add_data_point(
+            [ 300*Math.random()],
+            label++
+        );
+    }
+})(),1000)

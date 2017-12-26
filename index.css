@@ -4,6 +4,9 @@ body {
   font-size: medium;
   overflow-x: hidden;
 }
+::-webkit-scrollbar{
+  display: none;
+}
 *{
   padding: 0;
   margin: 0;
@@ -57,12 +60,13 @@ p {
   width: 80%;
   padding: 2rem;
   overflow: auto;
-  background: rgba(0,0,0,.3);
+  background: rgba(0,0,0,.6);
   align-self: stretch;
 }
 .month .content p {
   color: #eee;
   font-size: 1.4rem;
+  margin-top: 2rem;
   line-height: 3rem;
   max-width: 80%;
   text-align: justify;
@@ -85,6 +89,9 @@ p {
 }
 .page5{
   background-image: url('./img/4.jpeg');
+}
+#chart{
+  background: #fff;
 }
 @media screen and (max-width:400px){
   .month{
