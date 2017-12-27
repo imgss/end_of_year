@@ -1,3 +1,4 @@
+function drawChart(){
 let data = {
     labels: Array.apply(null, { length: 2 }).map(function(i,index){return index + 1}),
 
@@ -17,11 +18,6 @@ let data = {
     height: 250,
 
     colors: ['#7cd6fd', 'violet', 'blue'],
-    // hex-codes or these preset colors;
-    // defaults (in order):
-    // ['light-blue', 'blue', 'violet', 'red',
-    // 'orange', 'yellow', 'green', 'light-green',
-    // 'purple', 'magenta', 'grey', 'dark-grey']
 
     format_tooltip_x: d => (d + '').toUpperCase(),
     format_tooltip_y: d => d + ' pts'
@@ -33,8 +29,9 @@ var timerId = setInterval((function(){
             clearInterval(timerId)
         }
         chart.add_data_point(
-            [ 300*Math.random()],
+            [ 40*Math.random()],
             label++
         );
     }
-})(),1000)
+})(),1000);
+}
